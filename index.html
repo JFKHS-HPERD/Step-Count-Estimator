@@ -156,8 +156,11 @@
             document.getElementById('stepLengthResult').innerHTML = 
                 `Your average step length is ${avgStepLength.toFixed(2)} meters. Does it match up with your answer, ${myStepAnswer}?`;
 
-            // Return calculated step length
-            return avgStepLength.toFixed(2);
+            // Return both the calculated and student's answer
+            return {
+                calculated: avgStepLength.toFixed(2),
+                studentAnswer: myStepAnswer
+            };
         }
 
         // Step 2: Calculate walking speed
@@ -173,8 +176,11 @@
             document.getElementById('walkingSpeedResult').innerHTML = 
                 `Your average walking speed is ${avgSpeed.toFixed(2)} m/h. Does it match up with your answer, ${mySpeedAnswer}?`;
 
-            // Return calculated walking speed
-            return avgSpeed.toFixed(2);
+            // Return both the calculated and student's answer
+            return {
+                calculated: avgSpeed.toFixed(2),
+                studentAnswer: mySpeedAnswer
+            };
         }
 
         // Step 3: Estimate step count
@@ -191,8 +197,11 @@
             document.getElementById('stepCountResult').innerHTML = 
                 `Your estimated step count is ${estimatedStepCount.toFixed(0)} steps. Does it match up with your answer, ${myStepCountAnswer}?`;
 
-            // Return calculated step count
-            return estimatedStepCount.toFixed(0);
+            // Return both the calculated and student's answer
+            return {
+                calculated: estimatedStepCount.toFixed(0),
+                studentAnswer: myStepCountAnswer
+            };
         }
 
         // Save session results
@@ -225,9 +234,9 @@
                 logEntry.className = 'logEntry';
                 logEntry.innerHTML = `
                     <strong>Session ${index + 1}:</strong><br>
-                    Average Step Length: ${session.stepLength} meters<br>
-                    Walking Speed: ${session.walkingSpeed} m/h<br>
-                    Step Count: ${session.stepCount} steps<br>
+                    <strong>Step Length:</strong> Calculated: ${session.stepLength.calculated} meters, Student: ${session.stepLength.studentAnswer} meters<br>
+                    <strong>Walking Speed:</strong> Calculated: ${session.walkingSpeed.calculated} m/h, Student: ${session.walkingSpeed.studentAnswer} m/h<br>
+                    <strong>Step Count:</strong> Calculated: ${session.stepCount.calculated} steps, Student: ${session.stepCount.studentAnswer} steps<br>
                 `;
                 sessionLogDiv.appendChild(logEntry);
             });
