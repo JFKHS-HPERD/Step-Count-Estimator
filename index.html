@@ -234,9 +234,9 @@
                 logEntry.className = 'logEntry';
                 logEntry.innerHTML = `
                     <strong>Session ${index + 1}:</strong><br>
-                    <strong>Step Length:</strong> Calculated: ${session.stepLength.calculated} meters, Student: ${session.stepLength.studentAnswer} meters<br>
-                    <strong>Walking Speed:</strong> Calculated: ${session.walkingSpeed.calculated} m/h, Student: ${session.walkingSpeed.studentAnswer} m/h<br>
-                    <strong>Step Count:</strong> Calculated: ${session.stepCount.calculated} steps, Student: ${session.stepCount.studentAnswer} steps<br>
+                    <strong>Step Length:</strong> Calculated: ${session.stepLength.calculated} meters, Your answer: ${session.stepLength.studentAnswer} meters<br>
+                    <strong>Walking Speed:</strong> Calculated: ${session.walkingSpeed.calculated} m/min, Your answer: ${session.walkingSpeed.studentAnswer} m/min<br>
+                    <strong>Step Count:</strong> Calculated: ${session.stepCount.calculated} steps, Your answer: ${session.stepCount.studentAnswer} steps<br>
                 `;
                 sessionLogDiv.appendChild(logEntry);
             });
