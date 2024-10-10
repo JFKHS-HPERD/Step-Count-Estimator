@@ -73,58 +73,70 @@
     <h1>Mr. Tenorio's Walking Activity Step Count Estimator</h1>
 
     <!-- Step Length Section -->
-    <div class="section">
-        <h2>Step 1: Calculate Your Average Step Length</h2>
-        <h4><i>Average Step Length = Total Distance ÷ 10</i></h4>
-        <label for="totalDistance">Enter total distance for 10 steps (cm):</label><br>
-        <input type="number" id="totalDistance" placeholder="Total distance in cm"><br>
+<div class="section">
+    <h2>Step 1: Calculate Your Average Step Length</h2>
+    <h4><i>Average Step Length = Total Distance ÷ 10</i></h4>
+    <label for="totalDistance">Enter total distance for 10 steps (cm):</label><br>
+    <input type="number" id="totalDistance" placeholder="Total distance in cm"><br>
 
-        <label for="myStepAnswer">Enter your calculated step length (m):</label><br>
-        <input type="number" id="myStepAnswer" placeholder="Your answer (in meters)" step="any"><br>
+    <label for="myStepAnswer">Enter your calculated step length (m):</label><br>
+    <input type="number" id="myStepAnswer" placeholder="Your answer (in meters)" step="any"><br>
 
-        <button onclick="calculateStepLength()">Check Step Length</button>
+    <button onclick="calculateStepLength()">Check Step Length</button>
 
-        <div id="stepLengthResult" class="result"></div>
-    </div>
+    <div id="stepLengthResult" class="result"></div>
 
-    <!-- Walking Speed Section -->
-    <div class="section">
-        <h2>Step 2: Calculate Your Walking Speed</h2>
-        <h4><i>Average Walking Speed= Distance in meters ÷ Walking Time in minutes (divide seconds by 60 to convert to decimal)</i></h4>
-        <label for="distanceWalked">Enter total distance walked (m):</label><br>
-        <input type="number" id="distanceWalked" placeholder="Total distance in meters" step="any"><br>
+    <label>Does your answer match?</label><br>
+    <input type="checkbox" id="stepLengthYes" value="Yes"> Yes
+    <input type="checkbox" id="stepLengthNo" value="No"> No
+</div>
 
-        <label for="durationWalked">Enter walking duration (minutes):</label><br>
-        <input type="number" id="durationWalked" placeholder="Duration in minutes" step="any"><br>
+<!-- Walking Speed Section -->
+<div class="section">
+    <h2>Step 2: Calculate Your Walking Speed</h2>
+    <h4><i>Average Walking Speed= Distance in meters ÷ Walking Time in minutes</i></h4>
+    <label for="distanceWalked">Enter total distance walked (m):</label><br>
+    <input type="number" id="distanceWalked" placeholder="Total distance in meters" step="any"><br>
 
-        <label for="mySpeedAnswer">Enter your calculated walking speed (m/min):</label><br>
-        <input type="number" id="mySpeedAnswer" placeholder="Your answer (m/h)" step="any"><br>
+    <label for="durationWalked">Enter walking duration (minutes):</label><br>
+    <input type="number" id="durationWalked" placeholder="Duration in minutes" step="any"><br>
 
-        <button onclick="calculateWalkingSpeed()">Check Walking Speed</button>
+    <label for="mySpeedAnswer">Enter your calculated walking speed (m/min):</label><br>
+    <input type="number" id="mySpeedAnswer" placeholder="Your answer (m/min)" step="any"><br>
 
-        <div id="walkingSpeedResult" class="result"></div>
-    </div>
+    <button onclick="calculateWalkingSpeed()">Check Walking Speed</button>
 
-    <!-- Step Count Section -->
-    <div class="section">
-        <h2>Step 3: Estimate Your Step Count</h2>
-        <h4><i>Average Walking Speed x Walking Time ÷ Average Step Length</i></h4>
-        <label for="avgSpeed">Enter your average walking speed (m/min):</label><br>
-        <input type="number" id="avgSpeed" placeholder="Walking speed in m/min" step="any"><br>
+    <div id="walkingSpeedResult" class="result"></div>
 
-        <label for="walkingTime">Enter your walking time (minutes):</label><br>
-        <input type="number" id="walkingTime" placeholder="Time in minutes" step="any"><br>
+    <label>Does your answer match?</label><br>
+    <input type="checkbox" id="walkingSpeedYes" value="Yes"> Yes
+    <input type="checkbox" id="walkingSpeedNo" value="No"> No
+</div>
 
-        <label for="avgStepLength">Enter your average step length (m):</label><br>
-        <input type="number" id="avgStepLength" placeholder="Step length in meters" step="any"><br>
+<!-- Step Count Section -->
+<div class="section">
+    <h2>Step 3: Estimate Your Step Count</h2>
+    <h4><i>Average Walking Speed x Walking Time ÷ Average Step Length</i></h4>
+    <label for="avgSpeed">Enter your average walking speed (m/min):</label><br>
+    <input type="number" id="avgSpeed" placeholder="Walking speed in m/min" step="any"><br>
 
-        <label for="myStepCountAnswer">Enter your calculated step count:</label><br>
-        <input type="number" id="myStepCountAnswer" placeholder="Your answer (step count)" step="any"><br>
+    <label for="walkingTime">Enter your walking time (minutes):</label><br>
+    <input type="number" id="walkingTime" placeholder="Time in minutes" step="any"><br>
 
-        <button onclick="calculateStepCount()">Check Step Count</button>
+    <label for="avgStepLength">Enter your average step length (m):</label><br>
+    <input type="number" id="avgStepLength" placeholder="Step length in meters" step="any"><br>
 
-        <div id="stepCountResult" class="result"></div>
-    </div>
+    <label for="myStepCountAnswer">Enter your calculated step count:</label><br>
+    <input type="number" id="myStepCountAnswer" placeholder="Your answer (step count)" step="any"><br>
+
+    <button onclick="calculateStepCount()">Check Step Count</button>
+
+    <div id="stepCountResult" class="result"></div>
+
+    <label>Does your answer match?</label><br>
+    <input type="checkbox" id="stepCountYes" value="Yes"> Yes
+    <input type="checkbox" id="stepCountNo" value="No"> No
+</div>
 
     <!-- Save Session Button -->
     <div class="section">
@@ -207,42 +219,51 @@
         }
 
         // Save session results
-        function saveSession() {
-            let stepLength = calculateStepLength();
-            let walkingSpeed = calculateWalkingSpeed();
-            let stepCount = calculateStepCount();
+function saveSession() {
+    let stepLength = calculateStepLength();
+    let walkingSpeed = calculateWalkingSpeed();
+    let stepCount = calculateStepCount();
 
-            // Create session object
-            let session = {
-                stepLength: stepLength,
-                walkingSpeed: walkingSpeed,
-                stepCount: stepCount
-            };
+    // Capture whether the student's answers match for each section
+    let stepLengthMatch = document.getElementById('stepLengthYes').checked ? 'Yes' : 'No';
+    let walkingSpeedMatch = document.getElementById('walkingSpeedYes').checked ? 'Yes' : 'No';
+    let stepCountMatch = document.getElementById('stepCountYes').checked ? 'Yes' : 'No';
 
-            // Add session to the log
-            sessionLog.push(session);
+    // Create session object
+    let session = {
+        stepLength: stepLength,
+        stepLengthMatch: stepLengthMatch,
+        walkingSpeed: walkingSpeed,
+        walkingSpeedMatch: walkingSpeedMatch,
+        stepCount: stepCount,
+        stepCountMatch: stepCountMatch
+    };
 
-            // Display saved session in the log
-            displaySessionLog();
-        }
+    // Add session to the log
+    sessionLog.push(session);
 
-        // Display the session log
-        function displaySessionLog() {
-            let sessionLogDiv = document.getElementById('sessionLog');
-            sessionLogDiv.innerHTML = '';  // Clear the current log display
+    // Display saved session in the log
+    displaySessionLog();
+}
 
-            sessionLog.forEach((session, index) => {
-                let logEntry = document.createElement('div');
-                logEntry.className = 'logEntry';
-                logEntry.innerHTML = `
-                    <strong>Session ${index + 1}:</strong><br>
-                    <strong>Step Length:</strong> Calculated: ${session.stepLength.calculated} meters, Your answer: ${session.stepLength.studentAnswer} meters<br>
-                    <strong>Walking Speed:</strong> Calculated: ${session.walkingSpeed.calculated} m/min, Your answer: ${session.walkingSpeed.studentAnswer} m/min<br>
-                    <strong>Step Count:</strong> Calculated: ${session.stepCount.calculated} steps, Your answer: ${session.stepCount.studentAnswer} steps<br>
-                `;
-                sessionLogDiv.appendChild(logEntry);
-            });
-        }
+// Display the session log
+function displaySessionLog() {
+    let sessionLogDiv = document.getElementById('sessionLog');
+    sessionLogDiv.innerHTML = '';  // Clear the current log display
+
+    sessionLog.forEach((session, index) => {
+        let logEntry = document.createElement('div');
+        logEntry.className = 'logEntry';
+        logEntry.innerHTML = `
+            <strong>Session ${index + 1}:</strong><br>
+            <strong>Step Length:</strong> Calculated: ${session.stepLength.calculated} meters, Your answer: ${session.stepLength.studentAnswer} meters, Match: ${session.stepLengthMatch}<br>
+            <strong>Walking Speed:</strong> Calculated: ${session.walkingSpeed.calculated} m/min, Your answer: ${session.walkingSpeed.studentAnswer} m/min, Match: ${session.walkingSpeedMatch}<br>
+            <strong>Step Count:</strong> Calculated: ${session.stepCount.calculated} steps, Your answer: ${session.stepCount.studentAnswer} steps, Match: ${session.stepCountMatch}<br>
+        `;
+        sessionLogDiv.appendChild(logEntry);
+    });
+}
+
     </script>
 
 </body>
