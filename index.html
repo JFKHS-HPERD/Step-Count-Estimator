@@ -93,7 +93,7 @@
         <input type="number" id="distanceWalked" placeholder="Total distance in meters" step="any"><br>
 
         <label for="durationWalked">Enter walking duration (minutes):</label><br>
-        <input type="number" id="durationWalked" placeholder="Duration in hours" step="any"><br>
+        <input type="number" id="durationWalked" placeholder="Duration in minutes" step="any"><br>
 
         <label for="mySpeedAnswer">Enter your calculated walking speed (m/min):</label><br>
         <input type="number" id="mySpeedAnswer" placeholder="Your answer (m/h)" step="any"><br>
@@ -111,7 +111,7 @@
         <input type="number" id="avgSpeed" placeholder="Walking speed in m/h" step="any"><br>
 
         <label for="walkingTime">Enter your walking time (minutes):</label><br>
-        <input type="number" id="walkingTime" placeholder="Time in hours" step="any"><br>
+        <input type="number" id="walkingTime" placeholder="Time in minutes" step="any"><br>
 
         <label for="avgStepLength">Enter your average step length (m):</label><br>
         <input type="number" id="avgStepLength" placeholder="Step length in meters" step="any"><br>
@@ -174,7 +174,7 @@
 
             // Display result for comparison
             document.getElementById('walkingSpeedResult').innerHTML = 
-                `Your average walking speed is ${avgSpeed.toFixed(2)} m/h. Does it match up with your answer, ${mySpeedAnswer}?`;
+                `Your average walking speed is ${avgSpeed.toFixed(2)} m/min. Does it match up with your answer, ${mySpeedAnswer}?`;
 
             // Return both the calculated and student's answer
             return {
