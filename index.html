@@ -168,7 +168,7 @@
 
             // Display result for comparison
             document.getElementById('stepLengthResult').innerHTML = 
-                `Your average step length is ${avgStepLength.toFixed(2)} meters. Does it match up with your answer, ${myStepAnswer}?`;
+                `Your average step length is ${avgStepLength.toFixed(2)} meters. Does it match up with your answer, ${myStepAnswer} meters?`;
 
             // Return both the calculated and student's answer
             return {
@@ -188,7 +188,7 @@
 
             // Display result for comparison
             document.getElementById('walkingSpeedResult').innerHTML = 
-                `Your average walking speed is ${avgSpeed.toFixed(2)} m/min. Does it match up with your answer, ${mySpeedAnswer}?`;
+                `Your average walking speed is ${avgSpeed.toFixed(2)} m/min. Does it match up with your answer, ${mySpeedAnswer} m/min?`;
 
             // Return both the calculated and student's answer
             return {
@@ -209,7 +209,7 @@
 
             // Display result for comparison
             document.getElementById('stepCountResult').innerHTML = 
-                `Your estimated step count is ${estimatedStepCount.toFixed(0)} steps. Does it match up with your answer, ${myStepCountAnswer}?`;
+                `Your estimated step count is ${estimatedStepCount.toFixed(0)} steps. Does it match up with your answer, ${myStepCountAnswer} estimated steps?`;
 
             // Return both the calculated and student's answer
             return {
@@ -255,7 +255,7 @@ function displaySessionLog() {
         let logEntry = document.createElement('div');
         logEntry.className = 'logEntry';
         logEntry.innerHTML = `
-            <strong>Session ${index + 1}:</strong><br>
+            <strong>Let's compare your results:</strong><br>
             <strong>Step Length:</strong> Calculated: ${session.stepLength.calculated} meters, Your answer: ${session.stepLength.studentAnswer} meters, Match: ${session.stepLengthMatch}<br>
             <strong>Walking Speed:</strong> Calculated: ${session.walkingSpeed.calculated} m/min, Your answer: ${session.walkingSpeed.studentAnswer} m/min, Match: ${session.walkingSpeedMatch}<br>
             <strong>Step Count:</strong> Calculated: ${session.stepCount.calculated} steps, Your answer: ${session.stepCount.studentAnswer} steps, Match: ${session.stepCountMatch}<br>
